@@ -1,0 +1,14 @@
+python-dotenv
+faiss-cpu
+streamlit
+python-magic-bin
+langchain
+langchain-ollama
+langchain-core
+langchain-community
+langchain_text_splitters
+unstructured
+unstructured[all-docs]
+langchain-unstructured[local]
+
+
