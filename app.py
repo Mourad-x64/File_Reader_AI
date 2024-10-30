@@ -2,6 +2,7 @@ import logging
 import os
 import streamlit as st
 from dotenv import load_dotenv
+from langchain_groq import ChatGroq
 from langchain_ollama import OllamaEmbeddings
 from langchain_ollama import ChatOllama
 from langchain.chains import ConversationalRetrievalChain
@@ -50,7 +51,17 @@ def get_vectorstore(text_chunks, embedding):
 def get_conversation_chain(vectorstore):
     logger.info("Get conversation chain...")
 
-    llm = ChatOllama(model="llama3", temperature=0)
+    #llama3 locally takes a lot of time
+    #llm = ChatOllama(model="llama3", temperature=0)
+
+    #groq online
+    llm = ChatGroq(
+        model="mixtral-8x7b-32768",
+        temperature=0,
+        max_tokens=None,
+        timeout=None,
+        max_retries=2
+    )
 
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)

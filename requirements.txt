@@ -3,6 +3,7 @@ faiss-cpu
 streamlit
 python-magic-bin
 langchain
+langchain-groq
 langchain-ollama
 langchain-core
 langchain-community
